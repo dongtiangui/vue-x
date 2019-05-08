@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router/index'
 import MintUI from 'mint-ui'
+
+import BootstrapVue from 'bootstrap-vue' // bootstrap
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
+
 import 'mint-ui/lib/style.css'
 import 'font-awesome/css/font-awesome.css' // 加入字体图标库
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -21,6 +26,7 @@ Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
 
 Vue.config.productionTip = false
 Vue.use(MintUI)
+Vue.use(BootstrapVue)
 
 /* eslint-disable no-new */
 new Vue({

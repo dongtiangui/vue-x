@@ -1,18 +1,6 @@
 <template>
     <div id="app-index">
       <!--路由地址-->
-      <div class="head-search">
-        <p><i class="fa fa-map-marker fa-3x"></i><br>
-          <span> {{ localtion }} </span>
-        </p>
-        <mt-search class="index-search" v-model="value"
-                   cancel-text="取消"
-                   placeholder="搜索">
-        </mt-search>
-
-        <p><i class="fa fa-camera fa-3x"></i></p>
-      </div>
-
       <div class="page-tabbar">
         <div class="page-wrap">
           <mt-tab-container class="page-tabbar-container" v-model="selected">
@@ -21,15 +9,17 @@
               <home-page>
                   <!--home组件复用-->
               </home-page>
-
             </mt-tab-container-item>
             <mt-tab-container-item id="发现">
               <!--订单页面-->
               <mt-cell v-for="item in list" v-bind:key="item.id" :title="item.text"  />
             </mt-tab-container-item>
             <mt-tab-container-item id="优帮">
-              <!---->
-              <mt-cell v-for="item in list" v-bind:key="item.id" :title="item.text"  />
+              <!--商品组件复用-->
+             <order-page>
+
+             </order-page>
+
             </mt-tab-container-item>
 
             <mt-tab-container-item id="购物车">
@@ -77,12 +67,12 @@
 
 <script>
 import home from '../components/home'
+import order from '../components/order'
 export default {
   name: 'index',
   data () {
     return {
       selected: '优品',
-      localtion: '贵阳',
       list: [{
         id: 1,
         text: 'list'
@@ -105,7 +95,8 @@ export default {
     }
   },
   components: {
-    'home-page': home
+    'home-page': home,
+    'order-page': order
   }
 }
 </script>
@@ -115,38 +106,16 @@ export default {
   background-color: #ffff;
   font-size: 12px;
 }
-.head-search{
-  display: flex;
-  position: absolute;
-  width: 100%;
-  height: 50px;
-  top: 0;
-  left: 5%;
-  right: 5%;
-  bottom: 20px;
-  text-align: center;
-}
-.head-search p:nth-child(1){
-  width: 10%;
-}
-.head-search p:nth-child(2){
-  width: 5%;
-}
-.head-search span{
-  font-size: 12px;
-}
-.index-search{
-  height: 50px !important;
-  width: 75% !important;
-}
-
 .page-tabbar {
-  overflow: hidden;
-  height: 100vh;
+  overflow-y: hidden;
+  height: auto;
 }
 .page-wrap {
-  overflow: auto;
+  overflow-y: hidden;
   height: 100%;
   padding-bottom: 100px;
+}
+.page-tabbar-container{
+  height: 100%;
 }
 </style>

@@ -1,38 +1,42 @@
 <template>
-  <div class="page-tabbar">
-    <mt-swipe :auto="4000" class="index-swipe">
-      <mt-swipe-item>
-        <img src="../assets/image/11690381.jpg" alt="">
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="../assets/image/11690381.jpg" alt="">
-      </mt-swipe-item>
-      <mt-swipe-item>
-        <img src="../assets/image/11690381.jpg" alt="">
-      </mt-swipe-item>
-    </mt-swipe>
-    <div class="index-check">
-      <a><i class="fa fa-3x fa-shopping-bag"></i><br><span>商品</span></a>
-      <a><i class="fa fa-3x fa-shopping-cart"></i><br><span>商家</span></a>
-      <a><i class="fa fa-3x fa-camera"></i><br><span>数码</span></a>
-      <a><i class="fa fa-3x fa-car"></i><br><span>出行</span></a>
-    </div>
-    <div class="index-shop-main">
+    <div class="page-tabbar">
+      <!--搜索组件-->
+      <v-search class="v-search">
+      </v-search>
+      <mt-swipe :auto="4000" class="index-swipe">
+        <mt-swipe-item>
+          <img src="../assets/image/11690381.jpg" alt="">
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="../assets/image/11690381.jpg" alt="">
+        </mt-swipe-item>
+        <mt-swipe-item>
+          <img src="../assets/image/11690381.jpg" alt="">
+        </mt-swipe-item>
+      </mt-swipe>
+      <div class="index-check">
+        <a><i class="fa fa-3x fa-shopping-bag"></i><br><span>商品</span></a>
+        <a><i class="fa fa-3x fa-shopping-cart"></i><br><span>商家</span></a>
+        <a><i class="fa fa-3x fa-camera"></i><br><span>数码</span></a>
+        <a><i class="fa fa-3x fa-car"></i><br><span>出行</span></a>
+      </div>
+      <div class="index-shop-main">
         <div>
-           <a href="#"><img src="../assets/image/1.jpg" alt=""></a>
+          <a href="#"><img src="../assets/image/1.jpg" alt=""></a>
           <a><img src="../assets/image/1.jpg" alt=""></a>
         </div>
         <div>
-        <!--第二个空格-->
+          <!--第二个空格-->
           <a><img src="../assets/image/1.jpg" alt=""></a>
           <a><img src="../assets/image/1.jpg" alt=""></a>
         </div>
+      </div>
     </div>
-
-  </div>
 </template>
 
 <script>
+import search from '../components/search'
+
 export default {
   name: 'page-tabbar',
   data () {
@@ -58,21 +62,25 @@ export default {
         text: 'list'
       }]
     }
+  },
+  components: {
+    'v-search': search
   }
 }
 </script>
 
 <style>
-  .page-tabbar {
-    height: 100vh;
-    padding-top: 20px;
+  .page-tabbar{
+    height: 150vh!important;
+    overflow-y: hidden;
   }
   .index-swipe{
     height: 200px;
     width: 100%;
+    padding-top: 20px;
   }
   .index-swipe img{
-    height: 100%;
+    height: 200px;
     width: 100%;
   }
   .index-check{
@@ -115,5 +123,17 @@ export default {
   .index-shop-main div img{
     height: 100px;
     width: 80%;
+  }
+  .v-search{
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    top: 0;
+    left: 5%;
+    right: 5%;
+    bottom: 20px;
+    text-align: center;
+    margin: 0 auto;
   }
 </style>
