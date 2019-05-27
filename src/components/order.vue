@@ -3,7 +3,7 @@
       <v-search></v-search>
       <div class="order-btn-group">
         <b-button-group>
-          <b-button variant="info">
+          <b-button v-on:click="testAjax" variant="info">
             综合<i class="fa fa-sort"></i>
           </b-button>
           <b-button variant="info">
@@ -20,18 +20,38 @@
           </b-button>
         </b-button-group>
       </div>
-      <v-discover class="disabled-1"></v-discover>
+      <v-discover class="disabled-1">
+
+      </v-discover>
+      <b-list-group>
+          <b-list-group-item v-for="li in list" v-bind:key="li">
+            {{ li }}
+          </b-list-group-item>
+      </b-list-group>
   </div>
 </template>
 
 <script>
 import search from '../components/search'
-import discover from '../components/discover'
+import discover from '../components/shop'
 export default {
   name: 'order',
+  data () {
+    return {
+      list: []
+    }
+  },
   components: {
     'v-search': search,
     'v-discover': discover
+  },
+  methods: {
+    testAjax: function () {
+      this.$http.get('api/test/user').then(function (res) { // then 表示异步请求数据
+        console.info(res.data.rows)
+        this.list = res.data.rows
+      })
+    }
   }
 }
 </script>

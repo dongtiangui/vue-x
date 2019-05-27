@@ -1,14 +1,13 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router/index'
 import MintUI from 'mint-ui'
-
+import ElementUI from 'element-ui'
 import BootstrapVue from 'bootstrap-vue' // bootstrap
 import 'bootstrap/dist/css/bootstrap.css'
+import 'element-ui/lib/theme-chalk/index.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
-
+import VueResource from 'vue-resource'
 import 'mint-ui/lib/style.css'
 import 'font-awesome/css/font-awesome.css' // 加入字体图标库
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -27,7 +26,8 @@ Vue.component('font-awesome-layers-text', FontAwesomeLayersText)
 Vue.config.productionTip = false
 Vue.use(MintUI)
 Vue.use(BootstrapVue)
-
+Vue.use(VueResource)
+Vue.use(ElementUI)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

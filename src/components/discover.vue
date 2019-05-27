@@ -1,68 +1,99 @@
 <template>
-  <div>
-    <ul class="list-unstyled">
-      <b-media tag="li" class="b-media" right-align vertical-align="center">
-        <b-img slot="aside" blank blank-color="#abc" width="96" alt="placeholder"></b-img>
-        <h5 class="mt-0 mb-1">商品名称</h5>
-        <p class="mb-0">
-         商品介绍
-        </p>
-      </b-media>
+ <div>
+   <mt-navbar class="mt-navbar" v-model="selected">
+     <mt-tab-item id="activity">活动</mt-tab-item>
+     <mt-tab-item id="new-shop">新品</mt-tab-item>
+     <mt-tab-item id="dynamic-fashion">时尚动态</mt-tab-item>
+  </mt-navbar>
+   <!-- tab-container -->
+   <mt-tab-container v-model="selected">
+     <mt-tab-container-item id="activity">
+       <b-list-group>
+         <b-list-group-item v-for="item in list" v-bind:key="item.id" v-text="item.text" class="d-flex justify-content-between align-items-center">
+           <b-badge variant="primary" pill>14</b-badge>
+         </b-list-group-item>
+       </b-list-group>
+     </mt-tab-container-item>
+     <mt-tab-container-item id="new-shop">
 
-      <b-media tag="li" class="b-media" right-align vertical-align="center">
-        <b-img slot="aside" blank blank-color="#cba" width="96" alt="placeholder"></b-img>
+       <b-list-group>
+         <b-list-group-item class="d-flex justify-content-between align-items-center">
+           Cras justo odio
+           <b-badge variant="primary" pill>14</b-badge>
+         </b-list-group-item>
 
-        <h5 class="mt-0 mb-1">商品名称</h5>
-        <p class="mb-0">
-          商品介绍
-        </p>
-      </b-media>
+         <b-list-group-item class="d-flex justify-content-between align-items-center">
+           Dapibus ac facilisis in
+           <b-badge variant="primary" pill>2</b-badge>
+         </b-list-group-item>
 
-      <b-media tag="li" class="b-media" right-align vertical-align="center">
-        <b-img slot="aside" blank blank-color="#bac" width="96" alt="placeholder"></b-img>
+         <b-list-group-item class="d-flex justify-content-between align-items-center">
+           Morbi leo risus
+           <b-badge variant="primary" pill>1</b-badge>
+         </b-list-group-item>
+       </b-list-group>
+     </mt-tab-container-item>
+     <mt-tab-container-item id="dynamic-fashion">
 
-        <h5 class="mt-0 mb-1">商品名称</h5>
-        <p class="mb-0">
-          商品介绍
-        </p>
-      </b-media>
-      <b-media tag="li" class="b-media" right-align vertical-align="center">
-        <b-img slot="aside" blank blank-color="#bac" width="96" alt="placeholder"></b-img>
+       <b-list-group>
+         <b-list-group-item class="d-flex justify-content-between align-items-center">
+           Cras justo odio
+           <b-badge variant="primary" pill>14</b-badge>
+         </b-list-group-item>
 
-        <h5 class="mt-0 mb-1">商品名称</h5>
-        <p class="mb-0">
-          商品介绍
-        </p>
-      </b-media>
-      <b-media tag="li" class="b-media" right-align vertical-align="center">
-        <b-img slot="aside" blank blank-color="#bac" width="96" alt="placeholder"></b-img>
+         <b-list-group-item class="d-flex justify-content-between align-items-center">
+           Dapibus ac facilisis in
+           <b-badge variant="primary" pill>2</b-badge>
+         </b-list-group-item>
 
-        <h5 class="mt-0 mb-1">商品名称</h5>
-        <p class="mb-0">
-          商品介绍
-        </p>
-      </b-media>
-    </ul>
-  </div>
+         <b-list-group-item class="d-flex justify-content-between align-items-center">
+           Morbi leo risus
+           <b-badge variant="primary" pill>1</b-badge>
+         </b-list-group-item>
+       </b-list-group>
+     </mt-tab-container-item>
+   </mt-tab-container>
+ </div>
 </template>
 
 <script>
 export default {
-  name: 'discover'
+  name: 'discover',
+  data () {
+    return {
+      selected: 'activity',
+      list: [{
+        id: 1,
+        text: 'list'
+      }, {
+        id: 2,
+        text: 'list'
+      }, {
+        id: 3,
+        text: 'list'
+      }, {
+        id: 4,
+        text: 'list'
+      }, {
+        id: 5,
+        text: 'list'
+      }, {
+        id: 6,
+        text: 'list'
+      }]
+    }
+  }
 }
 </script>
 
 <style scoped>
-.list-unstyled{
-  background-color: white !important;
+.mt-tab-item{
+  font-size: 3em!important;
 }
-.list-unstyled .b-media:nth-child(1){
-  border-top: #42b983 solid 2px;
-}
-.list-unstyled .b-media{
-  box-shadow: 1px 2px 1px #fff6;
-  padding-top: 10px;
+.mt-navbar a{
   border-bottom: #42b983 solid 2px;
 }
-
+.mt-navbar a:hover{
+  border-bottom: red solid 2px;
+}
 </style>

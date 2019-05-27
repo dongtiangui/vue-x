@@ -6,13 +6,18 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
-    // Various Dev Server settings
+    proxyTable: {
+      '/api': {
+        target: 'http://localhost:8081', // 将以/api开头的所有请求代理到指定地址上
+        changeOrigin: true, // 支持跨域访问
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: false,

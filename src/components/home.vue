@@ -36,7 +36,6 @@
 
 <script>
 import search from '../components/search'
-
 export default {
   name: 'page-tabbar',
   data () {
@@ -68,25 +67,25 @@ export default {
   }
 }
 </script>
-
 <style>
   .page-tabbar{
     height: 150vh!important;
-    overflow-y: hidden;
+    overflow: scroll;
+    background-image:linear-gradient(to bottom, #ff374b, #f597ff, #ff5e13);
   }
   .index-swipe{
     height: 200px;
     width: 100%;
-    padding-top: 20px;
   }
   .index-swipe img{
     height: 200px;
     width: 100%;
   }
   .index-check{
+    border-radius: 10px;
     display: inline-flex;
     position: relative;
-    top: 30px;
+    top: 20px;
     text-align: center;
     width: 100%;
     height: 55px;
@@ -96,11 +95,8 @@ export default {
     width: 25%;
     height: auto;
   }
-  .index-check a:nth-child(2){
-    color: red;
-  }
-  .index-check a:nth-child(3){
-    color: forestgreen;
+  .index-check i{
+    color: lightcoral;
   }
   .index-shop-main{
     height: 200px;
